@@ -22,15 +22,13 @@ let upload=multer({
 
 router.post('/',(req,res)=>{
 
-
-
 //Store file
 upload(req ,res, async (err)=>{
     //Validate request
-    if(!req.file){
-        return res.json({error:"All fields are required"})
+    // if(!req.file){
+    //     return res.json({error:"All fields are required"})
     
-    }
+    // }
     if(err){
         return res.status(500).send({error:err.message})
     }
