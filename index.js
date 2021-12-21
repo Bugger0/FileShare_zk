@@ -15,7 +15,7 @@ const copyBtn=document.querySelector("#copyBtn")
 const emailForm=document.querySelector("#emailForm")
 
 
-const host="https://innshare.herokuapp.com/";
+const host="https://fileshare-zk.herokuapp.com/";
 const uploadURL=`${host}api/files`;
 
 const emailURL=`${host}api/files/send`;
@@ -85,12 +85,18 @@ const uploadFile=()=>{
     formData.append("myfile",file)
     const xhr=new XMLHttpRequest();
 
-    xhr.onreadystatechange=()=>{
-        if(xhr.readyState===XMLHttpRequest.DONE){
-            console.log(xhr.response);
-            onUploadSuccess(JSON.parse(xhr.response))
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+          onUploadSuccess(xhr.responseText);
         }
-    };
+      };
+    // xhr.onreadystatechange=()=>{
+    //     if(xhr.readyState===XMLHttpRequest.DONE){
+           
+    //         onUploadSuccess(JSON.parse(xhr.response))
+    //     }
+    // };
     xhr.upload.onprogress=updateProgress;
 
     xhr.upload.onerror=()=>{
@@ -149,7 +155,7 @@ if(success){
 })
 })
 
-
+let toastTimer;
 const showToast=(msg)=>{
     toast.innerText=msg;
     toast.style.transform="translateY(-50%,0)";
@@ -160,3 +166,6 @@ const showToast=(msg)=>{
 
     },2000)
 }
+
+
+
