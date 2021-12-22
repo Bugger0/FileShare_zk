@@ -42,7 +42,7 @@ upload(req ,res, async (err)=>{
 
     });
     const response=await file.save();
-    return res.json({file:`${process.env.APP_BASE_URL}/files/${response.uuid}`});
+    return res.json({file:`${process.env.APP_BASE_URL}files/${response.uuid}`});
   //http://localhost:3000/files/332453knkfv-24kjkfv   ->example url
 })
 });
