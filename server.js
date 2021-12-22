@@ -3,7 +3,7 @@ const express=require("express");
 const app=express();
 const path=require('path');
 const cors=require('cors');
-const PORT=process.env.PORT || 5500;
+const PORT=process.env.PORT || 3000;
 
 
 
@@ -11,7 +11,7 @@ const connectDB=require('./config/db');
 connectDB();
 //cors
 const corsOptions={
-    origin:['http://localhost:5500','http://localhost:3000']
+    origin:['http://localhost:5500','http://localhost:3000','https://fileshare-zk.herokuapp.com/']
     //['http://localhost:3000','http://localhost:5000','http://localhost:3300'],process.env.ALLOWED_CLIENTS.split(',')
 }
 app.use(cors(corsOptions))
