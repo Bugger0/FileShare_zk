@@ -75,7 +75,7 @@ router.post('/send',async(req,res)=>{
         sendMail({
             from:emailFrom,
             to:emailTo,
-            subject:'InShare file sharing',
+            subject:'ZShare file sharing',
             text:`{emailFrom} shared a file with you`,
             html:require('../services/emailTemp')({
                 emailFrom:emailFrom,

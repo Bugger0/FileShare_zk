@@ -12,7 +12,7 @@ const nodemailer=require('nodemailer');
     });
 
     let info=await transporter.sendMail({
-                from :`inShare <${from}>`,           //from:from if ley and value are same we can write it one time (from),
+                from :`ZShare <${from}>`,           //from:from if ley and value are same we can write it one time (from),
                 to,
                 subject,
                 text,
