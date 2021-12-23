@@ -10,11 +10,19 @@ const PORT=process.env.PORT || 3000;
 const connectDB=require('./config/db');
 connectDB();
 //cors
-const corsOptions={
-    origin:process.env.ALLOWED_CLIENTS.split(',')
-    //['http://localhost:3000','http://localhost:5000','http://localhost:3300'],process.env.ALLOWED_CLIENTS.split(',')
-}
-app.use(cors(corsOptions))
+
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+    );
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE");
+  
+    next();
+  });
+  
+  app.use(cors());
 
 app.use(express.static('public'));
 
